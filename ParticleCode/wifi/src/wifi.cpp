@@ -3,8 +3,8 @@
 /******************************************************/
 
 #include "Particle.h"
-#line 1 "c:/Users/baras/Documents/IoT/class_slides/ParticleCode/wifi/src/wifi.ino"
-/*
+#line 1 "/Users/rashap/Documents/IoT/class_materials/ParticleCode/wifi/src/wifi.ino"
+ /*
  * Project WiFi
  * Description: Determine which WiFi connections the Argon has stored and which are visible
  * Author: Brian Rashap
@@ -13,7 +13,7 @@
 
 void setup();
 void loop();
-#line 8 "c:/Users/baras/Documents/IoT/class_slides/ParticleCode/wifi/src/wifi.ino"
+#line 8 "/Users/rashap/Documents/IoT/class_materials/ParticleCode/wifi/src/wifi.ino"
 WiFiAccessPoint ap[10];
 WiFiAccessPoint aps[20];
 
@@ -27,7 +27,7 @@ String security[6] = {"WLAN_SEC_UNSEC", "WLAN_SEC_WEP", "WLAN_SEC_WPA", "WLAN_SE
 String cypher[4] = {"N/A","WLAN_CIPHER_AES", "WLAN_CIPHER_TKIP", "WLAN_CIPHER_AES_TKIP"};
 
 //SerialLogHandler LogHandler(LOG_LEVEL_ALL);
-SYSTEM_MODE(SEMI_AUTOMATIC);
+//SYSTEM_MODE(SEMI_AUTOMATIC);
 
 void setup() {
   Serial.begin(9600);
