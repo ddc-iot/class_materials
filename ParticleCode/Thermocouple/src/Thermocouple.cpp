@@ -27,7 +27,7 @@ void loop () {
   }
 
  // Read the raw Data value from the module
-  Serial.printf("RAW: %02X\n",thermocouple.getRawData());
+  Serial.printf("RAW: 0x%08X\n",thermocouple.getRawData());
 
   Serial.printf("TMP: %0.3f\n",thermocouple.getTemperature());
   delay(500);
