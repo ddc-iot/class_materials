@@ -28,7 +28,7 @@ void loop() {
 		Wire.beginTransmission(address);
 		status = Wire.endTransmission();
 		if (status == 0) {
-			Serial.printf("I2C device found at address 0x%02x \n",address);
+			Serial.printf("I2C device found at address 0x%02X \n",address);
 			nDevices++;
 		}
 	}
