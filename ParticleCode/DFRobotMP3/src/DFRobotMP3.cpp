@@ -48,48 +48,46 @@ void loop() {
 void printDetail(uint8_t type, int value){
   switch (type) {
     case TimeOut:
-      Serial.println(F("Time Out!"));
+      Serial.printf("Time Out!\n");
       break;
     case WrongStack:
-      Serial.println(F("Stack Wrong!"));
+      Serial.printf("Stack Wrong!\n");
       break;
     case DFPlayerCardInserted:
-      Serial.println(F("Card Inserted!"));
+      Serial.printf("Card Inserted!\n");
       break;
     case DFPlayerCardRemoved:
-      Serial.println(F("Card Removed!"));
+      Serial.printf("Card Removed!\n");
       break;
     case DFPlayerCardOnline:
-      Serial.println(F("Card Online!"));
+      Serial.printf("Card Online!\n");
       break;
     case DFPlayerPlayFinished:
-      Serial.print(F("Number:"));
-      Serial.print(value);
-      Serial.println(F(" Play Finished!"));
+      Serial.printf("Number %i Play Finished!\n",value);
       break;
     case DFPlayerError:
-      Serial.print(F("DFPlayerError:"));
+      Serial.printf("DFPlayerError:\n");
       switch (value) {
         case Busy:
-          Serial.println(F("Card not found"));
+          Serial.printf("Card not found\n");
           break;
         case Sleeping:
-          Serial.println(F("Sleeping"));
+          Serial.printf("Sleeping\n");
           break;
         case SerialWrongStack:
-          Serial.println(F("Get Wrong Stack"));
+          Serial.printf("Get Wrong Stack\n");
           break;
         case CheckSumNotMatch:
-          Serial.println(F("Check Sum Not Match"));
+          Serial.printf("Check Sum Not Match\n");
           break;
         case FileIndexOut:
-          Serial.println(F("File Index Out of Bound"));
+          Serial.printf("File Index Out of Bound\n");
           break;
         case FileMismatch:
-          Serial.println(F("Cannot Find File"));
+          Serial.printf("Cannot Find File\n");
           break;
         case Advertise:
-          Serial.println(F("In Advertise"));
+          Serial.printf("In Advertise\n");
           break;
         default:
           break;
@@ -98,5 +96,4 @@ void printDetail(uint8_t type, int value){
     default:
       break;
   }
-
 }
