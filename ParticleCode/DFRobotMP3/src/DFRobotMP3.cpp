@@ -4,6 +4,14 @@
  * Date: 10-APR-2024
  */
 
+/* Wiring Note
+ * The MP3 Player is accessed through the Particle's UART pins (SERIAL1)
+ * Connect the Tx of the Particle is wired to the Rx of the MP3 player
+ * and visa-versoe for the Rx pin.
+ * 
+ * There is a fritzing diagram of the proper wiring in the class_materials/ParticleCode respository
+*/
+
 #include "Particle.h"
 #include "DFRobotDFPlayerMini.h"
 #include "Button.h"
@@ -11,6 +19,8 @@
 DFRobotDFPlayerMini myDFPlayer;
 Button nextButton(D0);
 unsigned int lastSong;
+
+// Declare Functions
 void printDetail(uint8_t type, int value);
 
 SYSTEM_MODE(SEMI_AUTOMATIC);
@@ -34,17 +44,21 @@ void setup() {
   Serial.printf("DFPlayer Mini online.\n");
   
   myDFPlayer.volume(30);  //Set volume value. From 0 to 30
-  myDFPlayer.loop(1);  //Play the first mp3
-  myDFPlayer.enableLoopAll();
+  myDFPlayer.play(1);     //Play the first track on the uSD card
+  
+  //The below code should loop each track, may or may not work
+  //myDFPlayer.loop(1);
+  //myDFPlayer.enableLoopAll();
 }
 
 void loop() {
   if(nextButton.isClicked()) {
     Serial.printf("Next Song\n");
-    myDFPlayer.next(); 
+    myDFPlayer.next();  /// myDFPlayter.prev() for previous track
   }
 }
 
+// MP3 Player Diagnostics
 void printDetail(uint8_t type, int value){
   switch (type) {
     case TimeOut:
